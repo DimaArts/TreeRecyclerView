@@ -1,0 +1,2 @@
+include ':app', ':treerecyclerviewlibrary'
+rootProject.name='TreeRecyclerView'
