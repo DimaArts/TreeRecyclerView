@@ -1,10 +1,10 @@
 package ru.dimaarts.treerecyclerviewlibrary.recyclertreeadapter
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+import android.view.View
 
-open class RecyclerTreeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-    var onClickListener: ((RecyclerTreeViewItem)->Unit)? = null
+open class RecyclerTreeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    var onClickListener: ((RecyclerTreeViewItem) -> Unit)? = null
 
     open fun bind(item: RecyclerTreeViewItem) {
         itemView.setOnClickListener {
