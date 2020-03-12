@@ -31,7 +31,7 @@ class DemoTreeAdapter(items: ArrayList<RecyclerTreeViewItem>): RecyclerTreeAdapt
     }
 
     override fun areItemsTheSame(item1: RecyclerTreeViewItem?, item2: RecyclerTreeViewItem?): Boolean {
-        return item1 is DemoTreeCategoryItem && item2 is DemoTreeCategoryItem && item1.id == item2.id
+        return item1 is ItemWithId && item2 is ItemWithId && item1.id == item2.id
     }
 
 }

@@ -43,14 +43,14 @@ class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView
     }
 
     private fun animateExpand(duration: Long) {
-        val rotate = RotateAnimation(360f, 180f, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f)
+        val rotate = RotateAnimation(COLLAPSED_DEGREES, EXPANDED_DEGREES, RELATIVE_TO_SELF, PIVOT_CENTER, RELATIVE_TO_SELF, PIVOT_CENTER)
         rotate.duration = duration
         rotate.fillAfter = true
         arrow.animation = rotate
     }
 
     private fun animateCollapse(duration: Long) {
-        val rotate = RotateAnimation(180f, 360f, RELATIVE_TO_SELF, 0.5f, RELATIVE_TO_SELF, 0.5f)
+        val rotate = RotateAnimation(EXPANDED_DEGREES, COLLAPSED_DEGREES, RELATIVE_TO_SELF, PIVOT_CENTER, RELATIVE_TO_SELF, PIVOT_CENTER)
         rotate.duration = duration
         rotate.fillAfter = true
         arrow.animation = rotate
@@ -58,5 +58,8 @@ class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView
 
     companion object {
         private const val ROTATE_ANIMATION_TIME_MS = 850L
+        private const val PIVOT_CENTER = 0.5f
+        private const val EXPANDED_DEGREES = 180f
+        private const val COLLAPSED_DEGREES = 360f
     }
 }

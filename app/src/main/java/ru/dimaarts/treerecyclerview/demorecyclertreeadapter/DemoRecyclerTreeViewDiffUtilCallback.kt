@@ -7,12 +7,12 @@ class DemoRecyclerTreeViewDiffUtilCallback(oldList: ArrayList<RecyclerTreeViewIt
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldItem = oldVisibleList[oldItemPosition]
         val newItem = newVisibleList[newItemPosition]
-        return oldItem is DemoTreeCategoryItem && newItem is DemoTreeCategoryItem && oldItem.id == newItem.id
+        return oldItem is ItemWithId && newItem is ItemWithId && oldItem.id == newItem.id
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
         val oldItem = oldVisibleList[oldItemPosition]
         val newItem = newVisibleList[newItemPosition]
-        return oldItem is DemoTreeCategoryItem && newItem is DemoTreeCategoryItem && oldItem.text == newItem.text && oldItem.expanded == newItem.expanded
+        return (oldItem is DemoTreeCategoryItem && newItem is DemoTreeCategoryItem && oldItem.text == newItem.text && oldItem.expanded == newItem.expanded)
     }
 }
