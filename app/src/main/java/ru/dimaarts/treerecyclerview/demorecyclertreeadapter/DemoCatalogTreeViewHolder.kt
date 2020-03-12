@@ -2,6 +2,7 @@ package ru.dimaarts.treerecyclerview.demorecyclertreeadapter
 
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
 import android.view.animation.Animation.RELATIVE_TO_SELF
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
@@ -13,7 +14,6 @@ import ru.dimaarts.treerecyclerviewlibrary.recyclertreeadapter.RecyclerTreeViewI
 class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView) {
     private val nameTextView = itemView.findViewById<TextView>(R.id.parent_category_text_view)
     private var arrow = itemView.findViewById<ImageView>(R.id.list_item_arrow)
-
 
     override fun bind(item: RecyclerTreeViewItem) {
         super.bind(item)
@@ -29,9 +29,9 @@ class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView
                 animateCollapse(ROTATE_ANIMATION_TIME_MS)
             else {
                 if (item.expanded)
-                    animateExpand(0)
+                    arrow.rotation = EXPANDED_DEGREES
                 else
-                    animateCollapse(0)
+                    arrow.rotation = COLLAPSED_DEGREES
             }
             item.userCollapse = false
             item.userExpand = false
@@ -48,6 +48,7 @@ class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView
     }
 
     private fun animateExpand(duration: Long) {
+        arrow.animation?.cancel()
         val rotate = RotateAnimation(COLLAPSED_DEGREES, EXPANDED_DEGREES, RELATIVE_TO_SELF, PIVOT_CENTER, RELATIVE_TO_SELF, PIVOT_CENTER)
         rotate.duration = duration
         rotate.fillAfter = true
@@ -55,6 +56,7 @@ class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView
     }
 
     private fun animateCollapse(duration: Long) {
+        arrow.animation?.cancel()
         val rotate = RotateAnimation(EXPANDED_DEGREES, COLLAPSED_DEGREES, RELATIVE_TO_SELF, PIVOT_CENTER, RELATIVE_TO_SELF, PIVOT_CENTER)
         rotate.duration = duration
         rotate.fillAfter = true
