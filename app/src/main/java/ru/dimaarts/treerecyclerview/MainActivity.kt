@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.dimaarts.treerecyclerview.demorecyclertreeadapter.DemoItemAnimator
 import ru.dimaarts.treerecyclerview.demorecyclertreeadapter.DemoTreeAdapter
 import ru.dimaarts.treerecyclerview.demorecyclertreeadapter.DemoTreeSelectableItem
 import ru.dimaarts.treerecyclerview.demorecyclertreeadapter.DemoTreeTopLevelItem
@@ -65,6 +64,8 @@ class MainActivity : AppCompatActivity() {
         items.add(item)
 
         recyclerTreeView.adapter = DemoTreeAdapter(items)
-        recyclerTreeView.itemAnimator = null
+        val animator = DefaultItemAnimator()
+        animator.supportsChangeAnimations = false
+        recyclerTreeView.itemAnimator = animator
     }
 }
