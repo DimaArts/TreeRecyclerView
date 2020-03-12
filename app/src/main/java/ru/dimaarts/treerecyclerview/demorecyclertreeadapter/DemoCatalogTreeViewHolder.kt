@@ -1,6 +1,7 @@
 package ru.dimaarts.treerecyclerview.demorecyclertreeadapter
 
 import android.view.View
+import android.view.ViewGroup
 import android.view.animation.Animation.RELATIVE_TO_SELF
 import android.view.animation.RotateAnimation
 import android.widget.ImageView
@@ -17,6 +18,10 @@ class DemoCatalogTreeViewHolder(itemView: View): RecyclerTreeViewHolder(itemView
     override fun bind(item: RecyclerTreeViewItem) {
         super.bind(item)
         if(item is DemoTreeCategoryItem) {
+            val lp = itemView.layoutParams as? ViewGroup.MarginLayoutParams
+            lp?.marginStart = itemView.resources.getDimensionPixelSize(R.dimen.tree_level_margin) * item.level
+            itemView.layoutParams = lp
+
             nameTextView.text = item.text
             if(item.userExpand == true)
                 animateExpand(ROTATE_ANIMATION_TIME_MS)

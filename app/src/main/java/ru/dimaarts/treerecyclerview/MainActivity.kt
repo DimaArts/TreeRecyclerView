@@ -22,45 +22,44 @@ class MainActivity : AppCompatActivity() {
         var item: RecyclerTreeViewItem? = null
 
         var subItems: ArrayList<RecyclerTreeViewItem> = arrayListOf(
-            DemoTreeSelectableItem(1, "File 1"),
-            DemoTreeSelectableItem(2, "File 2"),
-            DemoTreeSelectableItem(3, "File 3"),
-            DemoTreeSelectableItem(4, "File 4")
+            DemoTreeSelectableItem(2, "File 2", level = 1),
+            DemoTreeSelectableItem(3, "File 3", level = 1),
+            DemoTreeSelectableItem(4, "File 4", level = 1)
         )
 
-        item = DemoTreeTopLevelItem(0, "Catalog 1", subItems)
+        item = DemoTreeTopLevelItem(0, "Catalog 1", subItems, 0)
         items.add(item)
 
         subItems = arrayListOf(
-            DemoTreeSelectableItem(5, "File 5"),
-            DemoTreeSelectableItem(6, "File 6"),
-            DemoTreeSelectableItem(7, "File 7"),
-            DemoTreeSelectableItem(8, "File 8"),
-            DemoTreeSelectableItem(9, "File 9"),
-            DemoTreeSelectableItem(10, "File 10"),
-            DemoTreeSelectableItem(11, "File 11")
+            DemoTreeSelectableItem(5, "File 5", level = 1),
+            DemoTreeSelectableItem(6, "File 6", level = 1),
+            DemoTreeSelectableItem(7, "File 7", level = 1),
+            DemoTreeSelectableItem(8, "File 8", level = 1),
+            DemoTreeSelectableItem(9, "File 9", level = 1),
+            DemoTreeSelectableItem(10, "File 10", level = 1),
+            DemoTreeSelectableItem(11, "File 11", level = 1)
         )
 
-        item = DemoTreeTopLevelItem(21, "Catalog 2", subItems)
+        item = DemoTreeTopLevelItem(21, "Catalog 2", subItems, 0)
         items.add(item)
 
-        item = DemoTreeTopLevelItem(12, "Catalog 3", arrayListOf())
+        item = DemoTreeTopLevelItem(12, "Catalog 3", arrayListOf(), 0)
         items.add(item)
 
         val subItems2 = arrayListOf(
-            DemoTreeSelectableItem(18, "File 18"),
-            DemoTreeSelectableItem(19, "File 19"),
-            DemoTreeSelectableItem(20, "File 20")
+            DemoTreeSelectableItem(18, "File 18", level = 2),
+            DemoTreeSelectableItem(19, "File 19", level = 2),
+            DemoTreeSelectableItem(20, "File 20", level = 2)
         )
 
         subItems = arrayListOf(
-            DemoTreeSelectableItem(13, "File 13"),
-            DemoTreeSelectableItem(14, "File 14"),
-            DemoTreeSelectableItem(15, "File 15"),
-            DemoTreeSelectableItem(16, "File 16", subItems2)
+            DemoTreeSelectableItem(13, "File 13", level = 1),
+            DemoTreeSelectableItem(14, "File 14", level = 1),
+            DemoTreeSelectableItem(15, "File 15", level = 1),
+            DemoTreeSelectableItem(16, "File 16", subItems2, 1)
         )
 
-        item = DemoTreeTopLevelItem(17, "Catalog 4", subItems)
+        item = DemoTreeTopLevelItem(17, "Catalog 4", subItems, 0)
         items.add(item)
 
         recyclerTreeView.adapter = DemoTreeAdapter(items)

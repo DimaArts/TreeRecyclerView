@@ -1,6 +1,6 @@
 package ru.dimaarts.treerecyclerviewlibrary.recyclertreeadapter
 
-open class RecyclerTreeViewItem (var subItems: List<RecyclerTreeViewItem> = listOf(), var expanded: Boolean = false): Cloneable {
+open class RecyclerTreeViewItem (var subItems: List<RecyclerTreeViewItem> = listOf(), var expanded: Boolean = false, val level: Int = 0): Cloneable {
     var userExpand: Boolean? = null
     var userCollapse: Boolean? = null
 
